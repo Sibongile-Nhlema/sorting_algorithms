@@ -30,7 +30,7 @@ void bubble_sort(int *array, size_t size)
 }
 
 /**
- * swap_places -  swaps the value of the integers
+ * swap_int -  swaps the value of the integers
  *
  * @x: first integer
  * @y: second integer
