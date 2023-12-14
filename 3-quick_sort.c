@@ -46,6 +46,8 @@ void lomuto_sorting(int *array, size_t size, int left_index, int right_index)
  * @size: size of the array
  * @left_index: left most index of the array
  * @right_index: right most index of the array
+ *
+ * Return: partition index at final index
  */
 int lomuto_partition(int *array, size_t size, int left_index, int right_index)
 {
