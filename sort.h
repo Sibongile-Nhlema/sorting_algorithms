@@ -28,6 +28,7 @@ void selection_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
 void shell_sort(int *array, size_t size);
 void counting_sort(int *array, size_t size);
+void cocktail_sort_list(listint_t **list);
 
 /*Helper Functions*/
 void quick_sort_helper(int *array, int left_pointer, int right_pointer,
