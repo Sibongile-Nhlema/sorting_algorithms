@@ -13,10 +13,11 @@ void counting_sort(int *array, size_t size)
 	size_t i, j;
 	int k, largest_number = 0;
 
+	if (array == NULL || size < 2)
+		return;
 	array_copy = malloc(size * sizeof(int));
 	if (array_copy == NULL)
 		return;
-
 	for (i = 0; i < size; i++)
 	{
 		/*Find largest number in array*/
@@ -25,7 +26,6 @@ void counting_sort(int *array, size_t size)
 		/*Copy array*/
 		array_copy[i] = array[i];
 	}
-
 	count_array = malloc((largest_number + 1) * sizeof(int));
 	if (count_array == NULL)
 	{
