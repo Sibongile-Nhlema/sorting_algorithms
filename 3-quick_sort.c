@@ -5,7 +5,7 @@
  * using the Quick sort algorithm, utilizing the Lomuto
  * partition scheme.
  *
- * @array: A pointer to an array of integers.
+ * @array: An array of integers.
  * @size: The size of the array
 */
 void quick_sort(int *array, size_t size)
@@ -24,7 +24,7 @@ void quick_sort(int *array, size_t size)
  * using the Quick sort algorithm, utilizing the Lomuto
  * partition scheme.
  *
- * @array: A pointer to an array of integers.
+ * @array: An array of integers.
  * @left_pointer: The index of an element in the array which marks
  * the beginning of a partition to sort.
  * @right_pointer: The index of an element in the array which marks
@@ -54,7 +54,7 @@ size_t size)
  * than the pivot and the ones following the pivot are
  * larger than it.
  *
- * @array: A pointer to an array of integers.
+ * @array: An array of integers.
  * @left_pointer: The index of an element in the array which marks
  * the beginning of a partition to sort.
  * @right_pointer: The index of an element in the array which marks

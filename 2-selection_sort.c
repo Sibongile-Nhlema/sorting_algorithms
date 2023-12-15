@@ -4,7 +4,7 @@
  * selection_sort - Sorts an array of integers in ascending
  * order using the selection sort algorithm.
  *
- * @array: A pointer to an array of integers.
+ * @array: An array of integers.
  * @size: The size of the array.
 */
 void selection_sort(int *array, size_t size)
