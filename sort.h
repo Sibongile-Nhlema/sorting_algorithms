@@ -29,6 +29,7 @@ void quick_sort(int *array, size_t size);
 void cocktail_sort_list(listint_t **list);
 void merge_sort(int *array, size_t size);
 void radix_sort(int *array, size_t size);
+void quick_sort_hoare(int *array, size_t size);
 
 void swap_int(int *x, int *y);
 void swap_nodes(listint_t **h, listint_t **node1, listint_t *node2);
