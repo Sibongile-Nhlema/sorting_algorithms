@@ -1,6 +1,6 @@
 #include "sort.h"
 
-void counting_sort(int *arr, size_t size, int position, int *b);
+void custom_counting_sort(int *arr, size_t size, int position, int *b);
 int getMax(int *arr, int size);
 /**
  * radix_sort -  sorts an array of integers in ascending order
@@ -24,7 +24,7 @@ void radix_sort(int *arr, size_t size)
 	position = 1;
 	while (max / position > 0)
 	{
-		counting_sort(arr, size, position, b);
+		custom_counting_sort(arr, size, position, b);
 		print_array(arr, size);
 		position *= 10;
 	}
@@ -55,7 +55,7 @@ int getMax(int *arr, int size)
 }
 
 /**
- * counting_sort - sorts an array of integers in ascending order
+ * custom_counting_sort - sorts an array of integers in ascending order
  * using a custom plementation of the Counting sort algorithm
  *
  * @arr: pointer to the array of integers
@@ -63,7 +63,7 @@ int getMax(int *arr, int size)
  * @position: the position of the digit(units, ten, hundreds etc)
  * @b: pointer to the buffer where the array is stored
  */
-void counting_sort(int *arr, size_t size, int position, int *b)
+void custom_counting_sort(int *arr, size_t size, int position, int *b)
 {
 	int count_array[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 	size_t i;
