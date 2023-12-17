@@ -1,91 +1,87 @@
 #include "deck.h"
 
+void insertion_sort(card_t **cards, int size);
+int compare_cards(const void *card1, const void *card2);
 /**
  *  sort_deck - sorts a deck of cards
  *  @deck: double pointer the linked list containing the cards
+ *
+ *  Description: orders from Ace to King then Spades to Diamonds
  */
 void sort_deck(deck_node_t **deck)
 {
-	/*sort cards into new lists*/
-	deck_node_t *spade_head = NULL;
-	deck_node_t *club_head = NULL;
-	deck_node_t *diamond_head = NULL;
-	deck_node_t *heart_head = NULL;
-	deck_node_t *current;
-	deck_node_t *new_node;
+	deck_node_t *current = *deck;
+	card_t *cards[52];
+	int i = 0;
 
-	current = *deck;
 	while (current != NULL)
 	{
-		new_node = malloc(sizeof(deck_node_t));
-		if (new_node == NULL)
-			return;
-
-		new_node->card = current->card;
-		new_node->prev = NULL;
-		new_node->next = NULL;
-
-		switch (current->card->kind)
-		{
-			case SPADE:
-				if (spade_head == NULL)
-					spade_head = new_node;
-				else
-				{
-					new_node->next = spade_head;
-					spade_head->prev = new_node;
-					spade_head = new_node;
-				}
-				break;
-			case CLUB:
-				if (club_head == NULL)
-					club_head = new_node;
-				else
-				{
-					new_node->next = club_head;
-					club_head->prev = new_node;
-					club_head = new_node;
-				}
-				break;
-			case DIAMOND:
-				if (diamond_head == NULL)
-					diamond_head = new_node;
-				else
-				{
-					new_node->next = diamond_head;
-					diamond_head->prev = new_node;
-					diamond_head = new_node;
-				}
-				break;
-			case HEART:
-				if (heart_head == NULL)
-					heart_head = new_node;
-				else
-				{
-					new_node->next = heart_head;
-					heart_head->prev = new_node;
-					heart_head = new_node;
-				}
-				break;
-		}
+		cards[i] = (card_t *)current->card;
 		current = current->next;
+		i++;
 	}
-	printf("Spade: ");
-	print_deck(spade_head);
-	printf("\n");
 
-	printf("Club: ");
-	print_deck(club_head);
-	printf("\n");
+	qsort(cards, 52, sizeof(card_t *), compare_cards);
+	insertion_sort(cards, 52);
 
-	printf("Diamond: ");
-	print_deck(diamond_head);
-	printf("\n");
+	current = *deck;
+	i = 0;
+	while (current != NULL)
+	{
+		current->card = cards[i];
+		current = current->next;
+		i++;
+	}
+}
 
-	printf("Heart: ");
-	print_deck(heart_head);
-	printf("\n");
+/**
+ * compare_cards - compares the value and kind of each card against the next
+ * @card1: first card
+ * @card2: second card
+ * Return: 
+ */
+int compare_cards(const void *card1, const void *card2)
+{
+	int i, index1, index2;
+	const card_t *c1 = *(const card_t **)card1;
+	const card_t *c2 = *(const card_t **)card2;
+	const char *card_values[] = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
+	/* Get the indices of the card values in the desired order*/
+	index1 = -1;
+	index2 = -1;
+	for (i = 0; i < 13; i++)
+	{
+		if (strcmp(c1->value, card_values[i]) == 0)
+			index1 = i;
+		if (strcmp(c2->value, card_values[i]) == 0)
+			index2 = i;
+	}
+	/* Compare the indices of the card values */
+	if (index1 != index2)
+		return (index1 - index2);
 
-	/*sort each list*/
-	/*merge all lists*/
+	return (c1->kind - c2->kind);
+}
+
+/**
+ * insertion_sort - sorts the linked list using the insertion sort algorithm
+ * @cards: double pointer to the linked list
+ * @size: the size of the linked list
+ */
+void insertion_sort(card_t **cards, int size)
+{
+	card_t *suit_key;
+	int j, k;
+
+	for (j = 1; j < size; j++)
+	{
+		suit_key = cards[j];
+		k = j - 1;
+		while (k >= 0 && cards[k]->kind > suit_key->kind)
+		{
+			cards[k + 1] = cards[k];
+			k--;
+		}
+		cards[k + 1] = suit_key;
+	}
 }
