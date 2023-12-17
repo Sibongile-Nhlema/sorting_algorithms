@@ -32,6 +32,7 @@ void cocktail_sort_list(listint_t **list);
 void merge_sort(int *array, size_t size);
 void heap_sort(int *array, size_t size);
 void radix_sort(int *array, size_t size);
+void bitonic_sort(int *array, size_t size);
 
 /*Helper Functions*/
 void quick_sort_helper(int *array, int left_pointer, int right_pointer,
@@ -42,5 +43,9 @@ void shift_elements_to_right(int *array, int size);
 void sort_array(int *array, int *array_copy, int array_size,
 int *count_array);
 void heapify_tree(int *array, size_t size, int length, int i);
+void make_bitonic_sequence(int *array, int low_index, size_t size,
+int direction, size_t original_size);
+void bitonic_merge(int *array, int low_index, size_t size, int direction,
+size_t original_size);
 
 #endif
