@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 typedef enum kind_e
 {
@@ -39,4 +40,7 @@ typedef struct deck_node_s
     struct deck_node_s *next;
 } deck_node_t;
 
+deck_node_t *init_deck(const card_t cards[52]);
+void print_deck(const deck_node_t *deck);
+void sort_deck(deck_node_t **deck);
 #endif
