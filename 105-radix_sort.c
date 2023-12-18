@@ -2,30 +2,31 @@
 
 void custom_counting_sort(int *arr, size_t size, int position, int *b);
 int getMax(int *arr, int size);
+
 /**
  * radix_sort -  sorts an array of integers in ascending order
  * using the LSD Radix sort algorithm
  *
- * @arr: pointer to the array of integers
+ * @array: pointer to the array of integers
  * @size: the size of the array
  */
-void radix_sort(int *arr, size_t size)
+void radix_sort(int *array, size_t size)
 {
 	int max, position, *b;
 
-	if (arr == NULL || size < 2)
+	if (array == NULL || size < 2)
 		return;
 
 	b = malloc(sizeof(int) * size);
 	if (b == NULL)
 		return;
 
-	max = getMax(arr, size);
+	max = getMax(array, size);
 	position = 1;
 	while (max / position > 0)
 	{
-		custom_counting_sort(arr, size, position, b);
-		print_array(arr, size);
+		custom_counting_sort(array, size, position, b);
+		print_array(array, size);
 		position *= 10;
 	}
 	free(b);
