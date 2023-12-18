@@ -49,4 +49,6 @@ int direction, size_t original_size);
 void bitonic_merge(int *array, int low_index, size_t size, int direction,
 size_t original_size);
 
+void swap_node_after(listint_t **list, listint_t **tail, listint_t **shaker);
+void swap_node_before(listint_t **list, listint_t **tail, listint_t **shaker);
 #endif
