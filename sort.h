@@ -57,4 +57,7 @@ void merge_arrays(int *array, int *buffer,
 		size_t front, size_t mid, size_t back);
 void counting_sort(int *arr, size_t size, int position, int *b);
 int getMax(int *arr, int size);
+void swap_ints(int *x, int *y);
+void hoare_sorting(int *array, size_t size, int left_index, int right_index);
+int hoare_partition(int *array, size_t size, int left_index, int right_index);
 #endif
