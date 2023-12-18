@@ -5,12 +5,21 @@
 #include <stdlib.h>
 #include <string.h>
 
+/**
+ * enum kind_e - Card's suit
+ *
+ * The card has one of the possible values:
+ * @SPADE: Black suit
+ * @HEART: Red suit
+ * @CLUB: Black suit (three leaf clover)
+ * @DIAMOND: Red suit
+ */
 typedef enum kind_e
 {
-    SPADE = 0,
-    HEART,
-    CLUB,
-    DIAMOND
+	SPADE = 0,
+	HEART,
+	CLUB,
+	DIAMOND
 } kind_t;
 
 /**
@@ -22,8 +31,8 @@ typedef enum kind_e
  */
 typedef struct card_s
 {
-    const char *value;
-    const kind_t kind;
+	const char *value;
+	const kind_t kind;
 } card_t;
 
 /**
@@ -35,12 +44,13 @@ typedef struct card_s
  */
 typedef struct deck_node_s
 {
-    const card_t *card;
-    struct deck_node_s *prev;
-    struct deck_node_s *next;
+	const card_t *card;
+	struct deck_node_s *prev;
+	struct deck_node_s *next;
 } deck_node_t;
 
 deck_node_t *init_deck(const card_t cards[52]);
 void print_deck(const deck_node_t *deck);
 void sort_deck(deck_node_t **deck);
+
 #endif
