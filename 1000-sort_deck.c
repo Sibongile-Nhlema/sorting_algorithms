@@ -21,20 +21,22 @@ int compare_cards(const void *a, const void *b)
 		return (node_a->card->kind - node_b->card->kind);
 
 	value_a_char = node_a->card->value[0];
-	a_value = (value_a_char >= '2' && value_a_char <= '9') ?
-		value_a_char - '0' : (value_a_char == '1') ?
-			10 : (value_a_char == 'A') ? 1 : (value_a_char == 'J') ?
-				11 : (value_a_char == 'Q') ?
-					12 : (value_a_char == 'K') ?
-						13 : 0;
+	a_value = (value_a_char >= '2' && value_a_char <= '9') ? value_a_char - '0'
+	: (value_a_char == '1') ? 10
+	: (value_a_char == 'A') ? 1
+	: (value_a_char == 'J') ? 11
+	: (value_a_char == 'Q') ? 12
+	: (value_a_char == 'K') ? 13
+	: 0;
 
 	value_b_char = node_b->card->value[0];
-	b_value = (value_b_char >= '2' && value_b_char <= '9') ?
-		value_b_char - '0' : (value_b_char == '1') ?
-			10 : (value_b_char == 'A') ? 1 : (value_b_char == 'J') ?
-				11 : (value_b_char == 'Q') ?
-					12 : (value_b_char == 'K') ?
-						13 : 0;
+	b_value = (value_b_char >= '2' && value_b_char <= '9') ? value_b_char - '0'
+	: (value_b_char == '1') ? 10
+	: (value_b_char == 'A') ? 1
+	: (value_b_char == 'J') ? 11
+	: (value_b_char == 'Q') ? 12
+	: (value_b_char == 'K') ? 13
+	: 0;
 
 	return (a_value - b_value);
 
