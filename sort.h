@@ -51,4 +51,8 @@ size_t original_size);
 
 void swap_node_after(listint_t **list, listint_t **tail, listint_t **shaker);
 void swap_node_before(listint_t **list, listint_t **tail, listint_t **shaker);
+void merge_sort(int *array, size_t size);
+void merge_sort_recursive(int *array, int *buffer, size_t front, size_t back);
+void merge_arrays(int *array, int *buffer,
+		size_t front, size_t mid, size_t back);
 #endif
